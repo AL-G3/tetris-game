@@ -1,5 +1,14 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 0;
+    height: 80vh;
 }
 
 .grid {
@@ -8,6 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     background-color: pink;
+    box-shadow: 4px 3px 11px rgba(0, 0, 0, .5);
 }
 
 .grid div {
@@ -16,19 +26,46 @@
 }
 
 .tetrimino {
-    background-color: skyblue;
+    background-color: darkblue;
 }
 
 .mini-grid {
-    margin: 50px;
     width: 80px;
     height: 80px;
     display: flex;
     flex-wrap: wrap;
     background-color: tomato;
+    box-shadow: 4px 3px 11px rgba(0, 0, 0, .5);
 }
 
 .mini-grid div {
     height: 20px;
     width: 20px;
+}
+
+.menu {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+header {
+    text-align: center;
+    margin: 0 auto;
+    width: 240px;
+}
+
+.sidebar {
+    margin: 0 50px;
+}
+
+button {
+    background: pink;
+    border-style: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    box-shadow: 4px 3px 11px rgba(0, 0, 0, .5);
+    font-weight: bold;
+    color: darkblue;
 }

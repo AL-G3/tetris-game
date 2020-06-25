@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let nextRandom = 0;
     const ScoreDisplay = document.querySelectorAll('#score');
     const StartButton = document.querySelectorAll('#start-pause-button');
+    let timerId;
 
 
     //set tetrimenos 
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     };
 
-    timerId = setInterval(moveDown, 1000);
+    //timerId = setInterval(moveDown, 1000);
 
     function control(e) {
         if (e.keyCode === 37) {
@@ -90,11 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
             current.forEach(index => squares[currentPosition + index].classList.add('taken'));
             //make new tetrimino FALL
-            selectRandomTetrimino = nextRandom
+            selectRandomTetrimino = nextRandom;
             nextRandom = Math.floor(Math.random() * tetrimenosArray.length);
             current = tetrimenosArray[selectRandomTetrimino][currentRotation];
             currentPosition = 4;
             draw();
+            displayShape();
         };
     }
 
@@ -132,12 +134,29 @@ document.addEventListener('DOMContentLoaded', () => {
         current = tetrimenosArray[selectRandomTetrimino][currentRotation];
         draw();
     }
-
-    const displaySquares = document.querySelectorAll('.mini-grid');
+    // show next tetrimino
+    const displaySquares = document.querySelectorAll('.mini-grid div');
     const displayWidth = 4;
-    let displayIndex = 0;
+    let displayIndex = 4;
+
+    //show tetrimino w/o rotation
+    const upNextTetrimino = [
+        [1, displayWidth + 1, displayWidth * 2 + 1, 2], // ltetrimino
+        [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //ztetrimino
+        [1, displayWidth, displayWidth + 1, displayWidth + 2], //ttetrimino
+        [0, 1, displayWidth, displayWidth + 1], //otetrimino
+        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //itetrimino
+    ];
+
+    function displayShape() {
+        displaySquares.forEach(squares => {
+            squares.classList.remove('tetrimino');
+        });
+        upNextTetrimino[nextRandom].forEach(index => {
+            displaySquares[displayIndex + index].classList.add('tetrimino');
+        });
+    };
 
 
-    // draw();
 
 });

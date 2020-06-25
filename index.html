@@ -6,12 +6,12 @@
     <title>Painted Brain Tetris Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <script src="app.js" charset="utf-8"></script>
 </head>
 
 <body>
-    <h3><span id="score">0</span></h3>
-    <button id="start-pause-button">Start/Pause</button>
+
     <main class="container">
         <section class="grid">
             <div></div>
@@ -225,25 +225,34 @@
             <div class='taken'></div>
             <div class='taken'></div>
         </section>
-        <section class="mini-grid">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <section class="sidebar">
+            <section class="mini-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </section>
+            <section class="menu">
+                <h3>Score: <span id="score">0</span></h3>
+                <button id="start-pause-button">Start/Pause</button>
+            </section>
         </section>
     </main>
+    <header>
+        <h1>Painted Brain Tetris</h1>
+    </header>
 </body>
 
 </html>
